@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write script.js"
+    "format": "prettier --write script.js",
+    "lint": "eslint **/*.{js,jsx} --quiet"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-prettier": "^3.6.0",
     "prettier": "^1.16.1"
   }
 }
