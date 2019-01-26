@@ -1,10 +1,16 @@
 import React from 'react';
 import Movie from './Movie';
+import { loadMovies } from './api';
 
 class App extends React.Component {
   state = {
-    showMovies: false
+    showMovies: false,
+    movies: []
   };
+
+  componentDidMount() {
+    loadMovies().then(movies => this.setState({ movies }));
+  }
 
   toggleMovies = () =>
     this.setState(prevState => ({
@@ -22,16 +28,14 @@ class App extends React.Component {
             {this.state.showMovies ? 'Hide' : 'Show'} Movies
           </button>
         </div>
-        {this.state.showMovies && (
-          <>
-            <Movie name="Aquaman" releaseDate="2018-12-07" />
-            <Movie name="Bumblebee" releaseDate="2018-12-15" />
+        {this.state.showMovies &&
+          this.state.movies.map(movie => (
             <Movie
-              name="Fantastic Beasts: The Crimes of Grindelwald"
-              releaseDate="2018-11-14"
+              name={movie.name}
+              releaseDate={movie.releaseDate}
+              key={movie.id}
             />
-          </>
-        )}
+          ))}
       </div>
     );
   }
