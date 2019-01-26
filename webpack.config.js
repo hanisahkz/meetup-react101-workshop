@@ -14,6 +14,16 @@ module.exports = {
   //   output: {
   //     filename: 'blah.[hash].js'
   //   },
+  module: {
+    //   rules needed for Babel
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
+  },
   devServer: {
     port: 9200
   },

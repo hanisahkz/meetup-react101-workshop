@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write script.js",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "build": "webpack --mode=\"development\"",
     "build:prod": "webpack --mode=\"production\"",
-    "lint": "eslint **/*.{js,jsx} --quiet",
+    "lint": "eslint src/**/*.{js,jsx} --quiet",
     "start": "webpack-dev-server --mode=\"development\" --open"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
     "eslint": "^5.12.1",
     "eslint-config-prettier": "^3.6.0",
     "html-webpack-plugin": "^3.2.0",
